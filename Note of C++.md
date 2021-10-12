@@ -1,4 +1,4 @@
-# Interview of C++
+# Note of C++
 
 ### Function signature
 
@@ -30,4 +30,8 @@ double Divide (int n, int m) ;
 [overloading functions URL](https://www.csee.umbc.edu/courses/undergraduate/202/spring07/Lectures/ChangSynopses/modules/m04-overload/slides.php?print)
 
 
+
+### pragma once
+
+Using `#pragma once` allows the [C preprocessor](https://en.wikipedia.org/wiki/C_preprocessor) to include a header file when it is needed and to ignore an `#include` directive otherwise. This has the effect of altering the behavior of the [C preprocessor](https://en.wikipedia.org/wiki/C_preprocessor) itself, and allows programmers to express file dependencies in a simple fashion, obviating the need for manual management.
 
