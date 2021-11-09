@@ -119,3 +119,6 @@ https://stackoverflow.com/questions/2340610/difference-between-fflush-and-fsync
 
 
 
+### typename and class
+
+https://stackoverflow.com/questions/2023977/difference-of-keywords-typename-and-class-in-templates
