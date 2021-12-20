@@ -283,7 +283,7 @@ int main(int argc, char const* argv[])
 
 6.new从自由存储区获取空间，malloc从堆获取空间（自由存储区和堆是不能划等号的！！！难点！！！）
 
-7.
+7.malloc得到的指针可以通过realloc重新分配一块空间，而new不行（为什么？）。
 
 
 
