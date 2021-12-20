@@ -305,10 +305,5 @@ int main(int argc, char const* argv[])
 
 ### iterator- what/why/how
 
-### 求二叉树深度
-
-### STL
-
-### 设计模式
 
 
