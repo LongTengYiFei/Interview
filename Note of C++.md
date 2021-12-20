@@ -277,7 +277,7 @@ int main(int argc, char const* argv[])
 
 3.new返回特定对象的指针，而malloc返回空指针，就是个地址，一般用的时候要强制转换一下。
 
-4.new是关键字，而malloc只是个函数。
+4.new是运算符，而malloc只是个函数。
 
 5.new一个对象的时候编译器帮我们计算所需空间，而malloc需要我们自己计算所需空间大小（一般用sizeof）。
 
