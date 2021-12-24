@@ -219,6 +219,7 @@ int main(int argc, char const* argv[])
    cout<<sizeof(C)<<endl;
 }
 ```
+虚表内部是虚函数的地址，每个对象都包含一个或多个虚表指针。上述类C就包含两个虚表指针。
 
 
 ### 虚析构函数
