@@ -286,9 +286,34 @@ int main(int argc, char const* argv[])
 是这样用的，一个函数内new了一块区域，直接返回指针是不太好的，一般是用这个指针初始化一个unique ptr，然后返回这个智能指针。
 
 ### iterator- what/why/how
-
 ### 迭代器失效
+
 https://www.cnblogs.com/wxquare/p/4699429.html
+
+```c++
+#include <vector>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+  vector<int> nums;
+  nums.reserve(10);
+  nums.push_back(1);
+  nums.push_back(2);
+  nums.push_back(3);
+    
+  vector<int>::iterator it = nums.begin() + 1;
+  printf("%d, %p\n", *it, &*it);
+  nums.insert(nums.begin(), 0);
+  printf("%d, %p\n", *it, &*it);
+  return 0;
+}
+/*
+对于vector插入的描述，说容量不变时，只失效插入点之后的迭代器。其实也不能说失效，只是说插入点之后的迭代器，如果再访问的话，值可能就和第一次访问时的不一样了。
+代码如上，我的it一开始指向数值2，然后再begin插入一个数值0，就是说，it还是指向原来的位置，但是原来的位置是前面的数值被挤过来的数值，1被挤过来了，所以再访问it的数值就是1。
+如果vector的容量变了，那么之前迭代器指向的空间全部都是非法空间，如果非要之前的迭代器，也是可以的，但是只是理论可以，实际开发不能这样做。
+*/
+```
 
 
 
