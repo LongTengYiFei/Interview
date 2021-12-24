@@ -274,6 +274,8 @@ int main(int argc, char const* argv[])
 ### Const cast- what/why/how
 
 ### Static cast- what/why/how
+static cast确保所有的转换都在编译时，没有运行时开销，而dynamic cast是运行时转换。
+static 也可以用作向下转型。
 
 ### Reinterpret cast - what/why/how
 公司项目几乎不用
