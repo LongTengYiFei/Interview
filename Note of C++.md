@@ -272,6 +272,16 @@ int main(int argc, char const* argv[])
 具体可以参考《c++编程思想》p326-p328.
 
 ### Const cast- what/why/how
+```c++
+void func(char * s){}
+void func2(char * s){}
+int main()
+{
+  func(const_cast<char*>("hello\n"));
+  func2("hello\n");
+}
+```
+就是为了防止这种，把一个字符串常量传入char\*类型的参数里，如果不用cast，则编译警告。项目里暂时只有这个用法。
 
 ### Static cast- what/why/how
 static cast确保所有的转换都在编译时，没有运行时开销，而dynamic cast是运行时转换。
