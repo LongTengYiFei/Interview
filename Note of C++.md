@@ -298,10 +298,14 @@ int main(int argc, char const* argv[])
 ### Static cast- what/why/how
 
 ### Reinterpret cast - what/why/how
+公司项目几乎不用
 
 ### Dynamic cast - what/why/how
+用的很少，一般是这样的，函数的参数是一个父类指针，函数体内需要把这个指针转成一个子类指针。
 
 ### smart pointer- what/why/how
+公司项目里几乎不使用共享指针，仅仅是使用unique。
+是这样用的，一个函数内new了一块区域，直接返回指针是不太好的，一般是用这个指针初始化一个unique ptr，然后返回这个智能指针。
 
 ### iterator- what/why/how
 
