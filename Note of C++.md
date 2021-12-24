@@ -277,19 +277,27 @@ int main(int argc, char const* argv[])
 static cast确保所有的转换都在编译时，没有运行时开销，而dynamic cast是运行时转换。
 static 也可以用作向下转型。
 
+
 ### Reinterpret cast - what/why/how
 公司项目几乎不用
 
+
 ### Dynamic cast - what/why/how
 用的很少，一般是这样的，函数的参数是一个父类指针，函数体内需要把这个指针转成一个子类指针。
+
 
 ### smart pointer- what/why/how
 公司项目里几乎不使用共享指针，仅仅是使用unique。
 是这样用的，一个函数内new了一块区域，直接返回指针是不太好的，一般是用这个指针初始化一个unique ptr，然后返回这个智能指针。
 
-### iterator- what/why/how
-### 迭代器失效
 
+### iterator- what/why/how
+一个类，重载了取内容操作符，指针操作符，加加操作符等操作符，行为像指针。
+有了迭代器，我们可以避免使用下标操作符访问容器，而且利于代码重用。
+https://www.geeksforgeeks.org/introduction-iterators-c/
+
+
+### 迭代器失效
 https://www.cnblogs.com/wxquare/p/4699429.html
 
 ```c++
