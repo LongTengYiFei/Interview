@@ -1,7 +1,6 @@
 # Note of C++
 
 ### Function signature
-
 Without parameter names, like this:
 
 ```c++
@@ -24,58 +23,48 @@ double Divide (int n, int m) ;
 ```
 
 ### Overloading Functions
-
 [overloading functions URL](https://www.csee.umbc.edu/courses/undergraduate/202/spring07/Lectures/ChangSynopses/modules/m04-overload/slides.php?print)
 
 
 ### pragma once
-
 Using `#pragma once` allows the [C preprocessor](https://en.wikipedia.org/wiki/C_preprocessor) to include a header file when it is needed and to ignore an `#include` directive otherwise. This has the effect of altering the behavior of the [C preprocessor](https://en.wikipedia.org/wiki/C_preprocessor) itself, and allows programmers to express file dependencies in a simple fashion, obviating the need for manual management.
 
 https://en.wikipedia.org/wiki/Pragma_once
 
 
 ### strncmp
-
 https://www.runoob.com/cprogramming/c-function-strncmp.html
 
 
 ### Argc and Argv
-
 https://stackoverflow.com/questions/3024197/what-does-int-argc-char-argv-mean
 
 
 ### multi-line define
-
 https://stackoverflow.com/questions/6281368/multi-line-define-directives
 
 
 ### assert
-
 http://www.cplusplus.com/reference/cassert/assert/
 
 我们可以在编译时指定assert是否crash进程
 
 
 ### extern
-
 https://stackoverflow.com/questions/10422034/when-to-use-extern-in-c
 
 
 ### __thread
-
 https://www.jianshu.com/p/997b533842c8
 
 https://stackoverflow.com/questions/32245103/how-does-the-gcc-thread-work
 
 
 ### 存储类说明符
-
 https://zh.cppreference.com/w/cpp/language/storage_duration
 
 
 ### 可变参数/变参宏
-
 https://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html
 
 https://blog.csdn.net/u012707739/article/details/80170671
@@ -84,23 +73,19 @@ https://blog.csdn.net/u012707739/article/details/80170671
 
 
 ### printf 合并字符串
-
 https://blog.csdn.net/yanxiaolx/article/details/51531633
 
 
 ### fflush and fsync
-
 https://stackoverflow.com/questions/2340610/difference-between-fflush-and-fsync
 
 
 ### typename and class
-
 https://stackoverflow.com/questions/2023977/difference-of-keywords-typename-and-class-in-templates
 
 
 
 ### c有重载吗
-
 c语言是没有重载的，重载需要编译器的支持，c++编译器会对函数名加前缀和后缀来修饰函数名，可以用readelf或者nm命令来查看编译后的目标文件。
 
 c语言的目标文件，函数名是没有修饰的，而c++的函数名在目标文件中是加了前缀和后缀修饰过的。
@@ -110,7 +95,6 @@ c语言的目标文件，函数名是没有修饰的，而c++的函数名在目�
 
 
 ### c/c++区别
-
 c++支持面向对象，继承，封装，多态。
 
 c++面向对象，c面向过程。
@@ -120,7 +104,6 @@ c++数据和函数被封装在对象里。c的函数和数据是分开的。
 
 
 ### c++如何调用c
-
 用extern "C"，
 
 被它大括号括住的函数声明，将不会使用c++的符号修饰。详情见《程序员的自我修养》。
@@ -181,7 +164,6 @@ test2.o里的add也还是"add"，所以函数定义就能找到了。
 
 
 ### 多态-what/why/how
-
 多态的意思就是相同的实体，在不同场合下有不同的表现。对象/函数。
 
 编译时：函数重载，运算符重载(也是函数重载的一种)
@@ -195,7 +177,6 @@ test2.o里的add也还是"add"，所以函数定义就能找到了。
 
 
 ### 虚函数- what/why/how 
-
 用父类指针指向子类对象，调用虚函数，调用的版本是子类重写的版本（如果子类重写了的话）。
 
 多态的一种实现方式。
@@ -207,7 +188,6 @@ test2.o里的add也还是"add"，所以函数定义就能找到了。
 
 
 ### 虚析构函数
-
 https://blog.csdn.net/weicao1990/article/details/81911341
 
 只有当一个类被用来作为基类的时候，才把析构函数写成虚函数。
@@ -219,7 +199,6 @@ https://blog.csdn.net/weicao1990/article/details/81911341
 
 
 ### 栈溢出/堆溢出
-
 堆实际上是没办法溢出的，当我们申请的空间大于堆上限时，malloc直接返回空指针。
 
 如果用new，则会抛出异常 std::bad_alloc。
@@ -270,7 +249,6 @@ int main(int argc, char const* argv[])
 
 
 ### New and malloc
-
 1.对于申请超过限制的空间，结果不同，new是抛出异常，malloc则是返回空指针。
 
 2.new会调用对象的构造函数，而malloc只是单纯的分配空间。
