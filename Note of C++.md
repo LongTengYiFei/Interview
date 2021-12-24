@@ -314,6 +314,27 @@ int main()
 如果vector的容量变了，那么之前迭代器指向的空间全部都是非法空间，如果非要之前的迭代器，也是可以的，但是只是理论可以，实际开发不能这样做。
 */
 ```
-
+```c++
+#include <vector>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+  vector<int> nums;
+  nums.reserve(10);
+  nums.push_back(1);
+  nums.push_back(2);
+  nums.push_back(3);
+  
+  vector<int>::iterator it = nums.begin() + 1;
+  printf("%d, %p\n", *it, &*it);
+  nums.erase(nums.begin() + 1);
+  printf("%d, %p\n", *it, &*it);
+  return 0;
+}
+/*
+it一开始指向的下标是1值是2，然后nums删除下标为1的数，3就被向左挪过去了。所以最后it指向的值是3，it其实还是指向下标为1的数。
+*/
+```
 
 
