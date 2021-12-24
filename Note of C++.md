@@ -223,7 +223,35 @@ https://blog.csdn.net/weicao1990/article/details/81911341
 
 
 ### 纯虚函数
+```c++
+class A
+{
+  virtual void func1() = 0;
+  virtual void func2() = 0;
+};
+class B : A
 
+{
+  public:
+  B();
+  ~B();
+  virtual void func1(){};
+  //virtual void func2(){};
+};
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  B b;
+  cout<<sizeof(A)<<endl;
+}
+/*
+只要包含纯虚函数的类就是抽象类，抽象类是不能构造的，这里编译会报错。
+如果B实现函数func2，那么B就不是抽象类了。
+A的大小是8，因为包含虚表指针，即使A的虚函数都是纯虚函数。
+*/
+```
 
 
 ### 栈溢出/堆溢出
