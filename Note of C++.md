@@ -287,5 +287,8 @@ int main(int argc, char const* argv[])
 
 ### iterator- what/why/how
 
+### 迭代器失效
+https://www.cnblogs.com/wxquare/p/4699429.html
+
 
 
