@@ -1,0 +1,77 @@
+# 字节社招押题
+
+### mysql-acid
+
+事务原子性Atomic，一个事务是一系列sql语句，这些sql要么全都执行，要么都不执行。实现原理：每次对表/临时表的插入，删除，更新操作都会写日志（撤销日志/undo log），记录相反的操作。
+
+事务持久性durable，更新，删除，插入一条记录，这个操作不会立即被同步到磁盘去，因为磁盘IO很慢，这个操作会被首先同步到内存缓冲区中，然后定时将缓冲区的内容刷盘。但是问题来了，如果mysql程序中途由于某些原因退出了，那么内存里的数据就没了（mysql服务器进程的数据）。所以，每次更新，删除，插入操作先写日志，再写内存缓冲。
+
+事务隔离性isolation，两个事务的执行，不能互相干扰。
+
+事务一致性，这是目标，上述三个性质是手段。
+
+
+
+### mysql-脏读
+
+举个例子，事务A修改了张三的年龄，但是还没commit，然后事务B读取了张三的年龄。
+
+
+
+### mysql-不可重复读
+
+举个例子，事务A读取了张三的年龄为25，然后事务B突然插进来修改了张三的年龄为20并提交了，最后事务A又读取张三的年龄发现是20，和第一次不一样。
+
+
+
+### mysql-幻读
+
+微软官网
+
+A *phantom* is a row that matches the search criteria but is not initially seen. For example, suppose transaction 1 reads a set of rows that satisfy some search criteria. Transaction 2 generates a new row (through either an update or an insert) that matches the search criteria for transaction 1. If transaction 1 reexecutes the statement that reads the rows, it gets a different set of rows.
+
+就比方说，事务A从一张员工表里筛选所有的男性，然后事务B插入了一条男性员工的记录，最后事务A再次筛选所有的男性时，发现多了一个人。
+
+
+
+### mysql-隔离级别
+
+可参考https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/transaction-isolation-levels?view=sql-server-ver15
+
+读未提交-最低的等级-连脏读都无法避免
+
+读已提交-可避免脏读
+
+可重复读
+
+可串行化
+
+
+
+### msyql-mvcc
+
+可以达到读已提交，可重复读。
+
+这是一个大的话题，需要参考《Msql是怎样运行的》第24章，有详细说明。
+
+
+
+### mysql-间隙锁-gap lock
+
+给一条记录加锁，不允许其他事务往这条记录前边的间隙插入新记录。防止插入幻影记录。
+
+
+
+### mysql-正经记录锁
+
+参考《Msql是怎样运行的》第25章
+
+
+
+### 排序算法-插入排序/冒泡排序
+
+### 排序算法-快速排序
+
+### 排序算法-桶排序
+
+### 排序算法-稳定性
